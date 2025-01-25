@@ -13,4 +13,3 @@ fi
 helm install grafana  oci://registry-1.docker.io/bitnamicharts/grafana 
 helm install loki  oci://registry-1.docker.io/bitnamicharts/grafana-loki
 timeout 60s kubectl wait --for=condition=ready pod -l app=grafana
-kubectl port-forward svc/grafana  3000:3000 
