@@ -10,6 +10,6 @@ if ! [ -x "$(command -v helm)" ]; then
     exit 1
 fi
 
-helm install grafana  oci://registry-1.docker.io/bitnamicharts/grafana 
-helm install loki  oci://registry-1.docker.io/bitnamicharts/grafana-loki
+helm upgrade --install grafana  oci://registry-1.docker.io/bitnamicharts/grafana 
+helm upgrade --install loki  oci://registry-1.docker.io/bitnamicharts/grafana-loki
 timeout 60s kubectl wait --for=condition=ready pod -l app=grafana
